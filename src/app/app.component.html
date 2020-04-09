@@ -5,9 +5,13 @@
 
       <ul>
         <li *ngFor = "let shopping of shoppingItems$| async">
-          {{ shopping.name }}
+          {{ shopping.name }} <span (click)="deleteItem(shopping.id)" style="color: red;"><small>Remove</small></span>
         </li>
       </ul> 
     </div>
+    <form (ngSubmit)="addItem()">
+      <input type="text" [(ngModel)]="newShoppingItem.name" placeholder="Item" name="itemName"/>
+      <button type="submit" >+</button>
+    </form>
   </div>
 </div>
